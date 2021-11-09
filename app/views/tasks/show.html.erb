@@ -1,0 +1,22 @@
+  <!-- Read one specific task (based on its id)-->
+
+<!-- Display the task title-->
+<h1><%= @task.title %></h1>
+
+<!--Display task details-->
+<p><%= @task.details %></p>
+
+<!--If the task is completed, display 'This task is complted'-->
+<!--Else, display 'This task is not completed yet'-->
+<p><%if @task.completed%>
+This task is completed
+<%else%>
+This task is not completed yet
+<%end%>
+</p>
+
+<!--Display a link to the index page (listing all tasks)-->
+<%= link_to 'Back to list' , tasks_path %>
+
+<!--Display a link to the update the task-->
+<%= link_to 'Edit this task' , edit_task_path %>

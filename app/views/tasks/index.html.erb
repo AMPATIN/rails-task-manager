@@ -1,0 +1,29 @@
+<!-- Read all tasks-->
+
+<!--Display a title My tasks-->
+<h1>My tasks</h1>
+
+<!--Display a list of all tasks-->
+<ul>
+  <% @tasks.each do |task| %>
+    <!--For each task display its title and link it to its show page-->
+    <li>
+      <%if task.completed%>
+        <i class="far fa-check-square"></i>
+      <%else%>
+        <i class="fa-regular fa-square"></i>
+      <%end%>
+
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to task_path(task),
+      method: :delete,
+      data: {confirm: "Are you sure?" } do%>
+      <i class="fas fa-trash-alt"></i>
+      <% end %>
+    </li>
+  <%end%>
+</ul>
+
+<!-- Display a link to create a new task-->
+<!-- Hint to find the path, use the rails route command in the terminal and get the prefix-->
+<%= link_to "Add a new task", tasks_new_path %>

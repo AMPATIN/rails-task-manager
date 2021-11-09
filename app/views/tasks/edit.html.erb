@@ -1,0 +1,15 @@
+<!-- Update task 1/2 GET the task update form -->
+
+<!-- Display a title-->
+<h1>Edit task</h1>
+
+<!-- Display the creation form with a *radio button* to complete the task-->
+<%= form_for(@task) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+  <%= f.label :completed %>
+  <%= f.radio_button :completed, "true"%>
+  <%= f.submit %>
+<% end %>
